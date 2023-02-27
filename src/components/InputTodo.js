@@ -3,11 +3,12 @@ const InputTodo = () => {
   const [title, setTitle] = useState('');
 
   const handleChange = (e) => {
-    setTitle(e.target.value);
+    e.preventDefault();
+    setTitle('');
   };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Add Todo..."
