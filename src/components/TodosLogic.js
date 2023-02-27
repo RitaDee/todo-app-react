@@ -7,13 +7,13 @@ const TodosLogic = () => {
 
   const addTodoItem = (title) => {
     // update state with user's input
-  };
   return (
     <div>
       <InputTodo addTodoItem={addTodoItem} />
       {/* ... */}
     </div>
   );
+};
 };
 
   const delTodo = (id) => {
@@ -43,6 +43,5 @@ const TodosLogic = () => {
       <TodosList todosProps={todos} handleChange={handleChange} />
     </div>
   );
-};
 
 export default TodosLogic;
