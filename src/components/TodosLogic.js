@@ -4,6 +4,20 @@ const TodosLogic = () => {
   const [todos, setTodos] = useState([
     // ...
   ]);
+
+  const delTodo = (id) => {
+    console.log('deleted', id);
+  };
+  return (
+    <div>
+      <InputTodo />
+      <TodosList
+        // ...
+        delTodo={delTodo}
+      />
+    </div>
+  );
+  
   const handleChange = (id) => {
     setTodos((prevState) =>
       prevState.map((todo) => {
