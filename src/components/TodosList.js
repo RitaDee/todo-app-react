@@ -1,9 +1,16 @@
 // ...
-const TodosList = ({ todosProps, setTodos }) => (
-  <ul>
-    {todosProps.map((todo) => (
-      <TodoItem key={todo.id} itemProp={todo} setTodos={setTodos} />
-    ))}
-  </ul>
-);
+const TodosList = ({ todosProps, handleChange }) => {
+  return (
+    <ul>
+      {todosProps.map((todo) => (
+        <TodoItem
+          key={todo.id}
+          itemProp={todo}
+          handleChange={handleChange}
+        />
+      ))}
+    </ul>
+  );
+};
+
 export default TodosList;
