@@ -6,15 +6,14 @@ const TodosLogic = () => {
   ]);
 
   const addTodoItem = (title) => {
-    // update state with user's input
-  return (
-    <div>
-      <InputTodo addTodoItem={addTodoItem} />
-      {/* ... */}
-    </div>
-  );
+  const newTodo = {
+    id: 4,
+    title: title,
+    completed: false,
+  };
+  setTodos([...todos, newTodo]);
 };
-};
+
 
   const delTodo = (id) => {
   setTodos([
