@@ -19,7 +19,10 @@ const TodosLogic = () => {
     },
   ]);
   return (
-    // ...
+    <div>
+     <InputTodo />
+      <TodosList todosProps={todos} setTodos={setTodos} />
+    </div>
   );
 };
 export default TodosLogic;
