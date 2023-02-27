@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import InputTodo from './InputTodo';
 // other imported components here
 const TodosLogic = () => {
   const [todos, setTodos] = useState([
@@ -13,7 +14,6 @@ const TodosLogic = () => {
   };
   setTodos([...todos, newTodo]);
 };
-
 
   const delTodo = (id) => {
   setTodos([
@@ -42,5 +42,6 @@ const TodosLogic = () => {
       <TodosList todosProps={todos} handleChange={handleChange} />
     </div>
   );
+};
 
 export default TodosLogic;
