@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import InputTodo from './InputTodo';
+import { v4 as uuidv4 } from "uuid";
+
 // other imported components here
 const TodosLogic = () => {
   const [todos, setTodos] = useState([
@@ -8,7 +10,7 @@ const TodosLogic = () => {
 
   const addTodoItem = (title) => {
   const newTodo = {
-    id: 4,
+    id: uuidv4(),
     title: title,
     completed: false,
   };
