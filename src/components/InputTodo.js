@@ -8,6 +8,12 @@ const InputTodo = () => {
     setTitle('');
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addTodoItem(title);
+    setTitle('');
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <input
