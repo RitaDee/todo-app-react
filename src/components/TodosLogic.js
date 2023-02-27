@@ -6,18 +6,13 @@ const TodosLogic = () => {
   ]);
 
   const delTodo = (id) => {
-    console.log('deleted', id);
-  };
-  return (
-    <div>
-      <InputTodo />
-      <TodosList
-        // ...
-        delTodo={delTodo}
-      />
-    </div>
-  );
-  
+  setTodos([
+    ...todos.filter((todo) => {
+      return todo.id !== id;
+    }),
+  ]);
+};
+
   const handleChange = (id) => {
     setTodos((prevState) =>
       prevState.map((todo) => {
