@@ -1,6 +1,8 @@
 const TodoItem = ({ itemProp, setTodos }) => (
   <li>
     <input type="checkbox" />
+    checked={itemProp.completed}
+    onChange={() => console.log('clicked')}
     {itemProp.title}
   </li>
 );
