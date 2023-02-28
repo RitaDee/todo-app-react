@@ -50,7 +50,14 @@ const TodosLogic = () => {
   };
 
   const setUpdate = (updatedTitle, id) => {
-    // update state
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          todo.title = updatedTitle;
+        }
+        return todo;
+      }),
+    );
   };
 
   return (
