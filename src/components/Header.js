@@ -1,13 +1,14 @@
-const Header = () => (
-  <header
-    style={{
-      padding: '20px 0',
-      lineHeight: '1.5em',
-      color: '#aeadad',
-      textAlign: 'center',
-    }}
-  >
-    {/* ... */}
-  </header>
-);
+const Header = () => {
+  const headerStyle = {
+    padding: '20px 0',
+    lineHeight: '1.5em',
+    color: '#aeadad',
+    textAlign: 'center',
+  };
+  return (
+    <header style={headerStyle}>
+      {/* ... */}
+    </header>
+  );
+};
 export default Header;
