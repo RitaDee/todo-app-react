@@ -7,7 +7,6 @@ const InputTodo = ({ addTodoItem }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     addTodoItem(title);
-    console.log(title);
     setTitle('');
   };
 

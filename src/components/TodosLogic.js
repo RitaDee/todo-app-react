@@ -40,7 +40,12 @@ const TodosLogic = () => {
   };
 
   const addTodoItem = (title) => {
-    // update state with user's input
+    const newTodo = {
+      id: 4,
+      title,
+      completed: false,
+    };
+    setTodos([...todos, newTodo]);
   };
 
   return (
