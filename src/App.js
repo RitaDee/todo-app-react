@@ -1,15 +1,12 @@
 import './App.css';
 import TodosLogic from './components/TodosLogic';
 
-function App() {
-  return (
-    <div className="wrapper">
-      <div className="todos">
-
-        <TodosLogic />
-      </div>
+const TodoApp = () => (
+  <div className="wrapper">
+    <div className="todos">
+      <Header />
+      <TodosLogic />
     </div>
-  );
-}
-
-export default App;
+  </div>
+);
+export default TodoApp;
