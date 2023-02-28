@@ -4,6 +4,7 @@ import Header from './components/Header';
 import NotMatch from './routes/NotMatch';
 import Navbar from './components/Navbar/Navbar';
 import Layout from './components/Layout';
+import SinglePage from './routes/SinglePage';
 
 import Home from './routes/Home';
 import About from './routes/About';
@@ -21,7 +22,9 @@ const App = () => (
     <Routes>
       <Route path="/" element={<Layout />} />
       <Route index element={<Home />} />
-      <Route path="about" element={<About />} />
+      <Route path="about" element={<About />}>
+        <Route path=":slug" element={<SinglePage />} />
+      </Route>
       <Route path="login" element={<Login />} />
       <Route path="profile" element={<Profile />} />
       <Route path="*" element={<NotMatch />} />
