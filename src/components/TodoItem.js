@@ -1,7 +1,14 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from '../styles/TodoItem.module.css';
 
 const TodoItem = ({ itemProp, handleChange, delTodo }) => {
+  const [editing, setEditing] = useState(false);
+
+  const handleEditing = () => {
+    setEditing(true);
+  };
+
   const completedStyle = {
     fontStyle: 'italic',
     color: '#595959',
@@ -17,11 +24,17 @@ const TodoItem = ({ itemProp, handleChange, delTodo }) => {
           checked={itemProp.completed}
           onChange={() => handleChange(itemProp.id)}
         />
+        <button type="button" onClick={handleEditing}>Edit</button>
         <button type="button">Edit</button>
         <button type="button" onClick={() => delTodo(itemProp.id)}>Delete</button>
         <span style={itemProp.completed ? completedStyle : null} />
         {itemProp.title}
       </div>
+      <input
+        type="text"
+        value={itemProp.title}
+        className={styles.textInput}
+      />
     </li>
   );
 };
