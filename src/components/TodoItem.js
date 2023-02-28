@@ -41,7 +41,6 @@ const TodoItem = ({
           onChange={() => handleChange(itemProp.id)}
         />
         <button type="button" onClick={handleEditing}>Edit</button>
-        <button type="button">Edit</button>
         <button type="button" onClick={() => delTodo(itemProp.id)}>Delete</button>
         <span style={itemProp.completed ? completedStyle : null} />
         {itemProp.title}
