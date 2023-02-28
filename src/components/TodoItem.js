@@ -2,7 +2,9 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from '../styles/TodoItem.module.css';
 
-const TodoItem = ({ itemProp, handleChange, delTodo }) => {
+const TodoItem = ({
+  itemProp, handleChange, delTodo, setUpdate,
+}) => {
   const [editing, setEditing] = useState(false);
 
   const viewMode = {};
@@ -43,7 +45,7 @@ const TodoItem = ({ itemProp, handleChange, delTodo }) => {
         value={itemProp.title}
         style={editMode}
         className={styles.textInput}
-        onChange={(e) => console.log(e.target.value, itemProp.id)}
+        onChange={(e) => setUpdate(e.target.value, itemProp.id)}
       />
     </li>
   );
