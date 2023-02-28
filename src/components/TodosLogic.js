@@ -39,9 +39,13 @@ const TodosLogic = () => {
     ]);
   };
 
+  const addTodoItem = (title) => {
+    // update state with user's input
+  };
+
   return (
     <div>
-      <InputTodo />
+      <InputTodo addTodoItem={addTodoItem} />
       <TodosList
         todosProps={todos}
         handleChange={handleChange}
