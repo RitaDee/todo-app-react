@@ -5,6 +5,14 @@ import styles from '../styles/TodoItem.module.css';
 const TodoItem = ({ itemProp, handleChange, delTodo }) => {
   const [editing, setEditing] = useState(false);
 
+  const viewMode = {};
+  const editMode = {};
+  if (editing) {
+    viewMode.display = 'none';
+  } else {
+    editMode.display = 'none';
+  }
+
   const handleEditing = () => {
     setEditing(true);
   };
@@ -18,7 +26,7 @@ const TodoItem = ({ itemProp, handleChange, delTodo }) => {
 
   return (
     <li className={styles.item}>
-      <div className={styles.content}>
+      <div className={styles.content} style={viewMode}>
         <input
           type="checkbox"
           checked={itemProp.completed}
@@ -33,6 +41,7 @@ const TodoItem = ({ itemProp, handleChange, delTodo }) => {
       <input
         type="text"
         value={itemProp.title}
+        style={editMode}
         className={styles.textInput}
       />
     </li>
