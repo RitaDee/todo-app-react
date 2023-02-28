@@ -43,6 +43,7 @@ const TodoItem = ({ itemProp, handleChange, delTodo }) => {
         value={itemProp.title}
         style={editMode}
         className={styles.textInput}
+        onChange={(e) => console.log(e.target.value, itemProp.id)}
       />
     </li>
   );
