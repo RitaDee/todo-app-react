@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -24,11 +25,21 @@ const Navbar = () => {
     };
   }, [navbarOpen]);
 
+  const links = [
+    { path: '/', text: 'Home' },
+    { path: '/about', text: 'About' },
+    { path: '/profile', text: 'Profile' },
+    { path: '/login', text: 'Login' },
+  ];
+
   return (
     <nav ref={ref}>
       <ul className={`menu-nav${navbarOpen ? ' show-menu' : ''}`}>
-        <li>Home</li>
-        <li>About</li>
+        {links.map((link) => (
+          <li key={link.text}>
+            <NavLink to={link.path}>{link.text}</NavLink>
+          </li>
+        ))}
         <li>
           <button type="button" onClick={() => setDropdown(!dropdown)}>
             Services
@@ -46,4 +57,5 @@ const Navbar = () => {
     </nav>
   );
 };
+
 export default Navbar;
