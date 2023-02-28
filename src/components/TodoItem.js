@@ -19,6 +19,12 @@ const TodoItem = ({
     setEditing(true);
   };
 
+  const handleUpdatedDone = (event) => {
+    if (event.key === 'Enter') {
+      setEditing(false);
+    }
+  };
+
   const completedStyle = {
     fontStyle: 'italic',
     color: '#595959',
@@ -45,6 +51,7 @@ const TodoItem = ({
         value={itemProp.title}
         style={editMode}
         className={styles.textInput}
+        onKeyDown={handleUpdatedDone}
         onChange={(e) => setUpdate(e.target.value, itemProp.id)}
       />
     </li>
