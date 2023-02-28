@@ -1,10 +1,12 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-const InputTodo = () => {
+const InputTodo = ({ addTodoItem }) => {
   const [title, setTitle] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    addTodoItem(title);
     console.log(title);
     setTitle('');
   };
@@ -25,4 +27,9 @@ const InputTodo = () => {
     </form>
   );
 };
+
+InputTodo.propTypes = {
+  addTodoItem: PropTypes.func.isRequired,
+};
+
 export default InputTodo;
