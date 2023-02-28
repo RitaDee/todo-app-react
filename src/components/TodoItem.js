@@ -1,3 +1,6 @@
+import { FaTrash } from 'react-icons/fa';
+import { AiFillEdit } from 'react-icons/ai';
+
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from '../styles/TodoItem.module.css';
@@ -40,8 +43,12 @@ const TodoItem = ({
           checked={itemProp.completed}
           onChange={() => handleChange(itemProp.id)}
         />
-        <button type="button" onClick={handleEditing}>Edit</button>
-        <button type="button" onClick={() => delTodo(itemProp.id)}>Delete</button>
+        <button type="button" onClick={handleEditing}>
+          <AiFillEdit />
+        </button>
+        <button type="button" onClick={() => delTodo(itemProp.id)}>
+          <FaTrash />
+        </button>
         <span style={itemProp.completed ? completedStyle : null} />
         {itemProp.title}
       </div>
