@@ -9,16 +9,18 @@ import Home from './routes/Home';
 import About from './routes/About';
 import Login from './routes/Login';
 import Profile from './routes/Profile';
+import TodosLogic from './components/TodosLogic';
 
 const App = () => (
   <div className="wrapper">
     <div className="todos">
       <Header />
       <Navbar />
+      <TodosLogic />
     </div>
     <Routes>
       <Route path="/" element={<Layout />} />
-      <Route path="/" element={<Home />} />
+      <Route index element={<Home />} />
       <Route path="about" element={<About />} />
       <Route path="login" element={<Login />} />
       <Route path="profile" element={<Profile />} />
