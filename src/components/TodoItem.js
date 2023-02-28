@@ -44,10 +44,10 @@ const TodoItem = ({
           onChange={() => handleChange(itemProp.id)}
         />
         <button type="button" onClick={handleEditing}>
-          <AiFillEdit />
+          <AiFillEdit style={{ color: '#5e5e5e', fontSize: '16px' }} />
         </button>
         <button type="button" onClick={() => delTodo(itemProp.id)}>
-          <FaTrash />
+          <FaTrash style={{ color: '#5e5e5e', fontSize: '16px' }} />
         </button>
         <span style={itemProp.completed ? completedStyle : null} />
         {itemProp.title}
