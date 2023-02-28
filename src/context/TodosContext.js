@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import {
   useState,
   useEffect,
@@ -10,14 +12,18 @@ import { v4 as uuidv4 } from 'uuid';
 const TodosContext = createContext(null);
 
 export const TodosProvider = ({ children }) => {
-  const [todos, setTodos] = useState(getInitialTodos());
-
   function getInitialTodos() {
     // getting stored items
     const temp = localStorage.getItem('todos');
     const savedTodos = JSON.parse(temp);
     return savedTodos || [];
   }
+
+  TodosProvider.propTypes = {
+    children: PropTypes.node.isRequired,
+  };
+
+  const [todos, setTodos] = useState(getInitialTodos());
 
   useEffect(() => {
     // storing todos items
@@ -56,7 +62,10 @@ export const TodosProvider = ({ children }) => {
     setTodos(
       todos.map((todo) => {
         if (todo.id === id) {
-          todo.title = updatedTitle;
+          return {
+            ...todo,
+            title: updatedTitle,
+          };
         }
         return todo;
       }),
