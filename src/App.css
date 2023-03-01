@@ -88,9 +88,9 @@ a {
   margin: 0 auto;
 }
 
-/*==========================
-About route 
-========================*/
+/* ==========================
+About route
+======================== */
 .about {
   max-width: 1000px;
   margin: 0 auto;
@@ -105,6 +105,12 @@ About route
   display: inline-block;
   text-decoration: none;
   font-weight: bold;
+}
+
+.menu-nav li a,
+.menu-nav li span {
+  display: block;
+  padding: 1rem;
 }
 
 .about_list a:hover {
@@ -137,9 +143,9 @@ About route
   }
 }
 
-/*==========================
+/* ==========================
 Sidebar navigation
-========================*/
+======================== */
 .navbar {
   position: relative;
 }
@@ -147,7 +153,6 @@ Sidebar navigation
 button {
   cursor: pointer;
   background: transparent;
-  ;
   border: none;
   font-size: 20px;
 }
@@ -158,7 +163,6 @@ button {
   top: 40px;
   cursor: pointer;
   background: transparent;
-  ;
   border: none;
 }
 
@@ -175,18 +179,13 @@ button {
   box-shadow: 0 10px 15px -3px rgb(46 41 51 / 8%), 0 4px 6px -2px rgb(71 63 79 / 16%);
   transform: translateX(-100px);
   transition: transform ease-in-out 0.2s;
+
   /* transition: width ease 0.2s; */
 }
 
 .menu-nav.show-menu {
   width: 100%;
-  transform: translateX(0px);
-}
-
-.menu-nav li a,
-.menu-nav li span {
-  display: block;
-  padding: 1rem;
+  transform: translateX(0);
 }
 
 .log-in {
