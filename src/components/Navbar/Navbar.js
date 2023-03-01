@@ -81,48 +81,45 @@ const Navbar = () => {
             )}
           </button>
           <ul className={`menu-nav${navbarOpen ? ' show-menu' : ''}`}>
-            {links.map((link) => (
-              <React.Fragment key={link.text}>
-                {link.path === 'login' ? (
-                  !user && (
-                  <li>
-                    <NavLink
-                      to={link.path}
-                      onClick={() => setNavbarOpen(false)}
-                    >
+            {links.map((link) => {
+              if (link.path === 'login') {
+                if (!user) {
+                  return (
+                    <li key={link.text}>
+                      <NavLink to={link.path} onClick={() => setNavbarOpen(false)}>
+                        {link.text}
+                      </NavLink>
+                    </li>
+                  );
+                }
+              } else if (link.path === 'profile') {
+                if (user) {
+                  return (
+                    <li key={link.text}>
+                      <NavLink to={link.path} onClick={() => setNavbarOpen(false)}>
+                        {link.text}
+                      </NavLink>
+                    </li>
+                  );
+                }
+              } else {
+                return (
+                  <li key={link.text}>
+                    <NavLink to={link.path} onClick={() => setNavbarOpen(false)}>
                       {link.text}
                     </NavLink>
                   </li>
-                  )
-                ) : link.path === 'profile' ? (
-                  user && (
-                  <li>
-                    <NavLink
-                      to={link.path}
-                      onClick={() => setNavbarOpen(false)}
-                    >
-                      {link.text}
-                    </NavLink>
-                  </li>
-                  )
-                ) : (
-                  <li>
-                    <NavLink
-                      to={link.path}
-                      onClick={() => setNavbarOpen(false)}
-                    >
-                      {link.text}
-                    </NavLink>
-                  </li>
-                )}
-              </React.Fragment>
-            ))}
+                );
+              }
+              return null;
+            })}
             {!user && (
             <li className="log-in">
               <span>Log in to edit to-dos</span>
             </li>
             )}
           </ul>
+
         </nav>
         {user && (
         <div className="logout">
