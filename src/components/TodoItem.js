@@ -1,7 +1,7 @@
 import { FaTrash } from 'react-icons/fa';
 import { AiFillEdit } from 'react-icons/ai';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styles from '../styles/TodoItem.module.css';
 
@@ -17,13 +17,14 @@ const TodoItem = ({
   } else {
     editMode.display = 'none';
   }
-
+  const editInputRef = useRef(null);
   const handleEditing = () => {
     setEditing(true);
   };
 
   const handleUpdatedDone = (event) => {
     if (event.key === 'Enter') {
+      setUpdate(editInputRef.current.value, itemProp.id);
       setEditing(false);
     }
   };
@@ -54,11 +55,11 @@ const TodoItem = ({
       </div>
       <input
         type="text"
-        value={itemProp.title}
-        style={editMode}
+        ref={editInputRef}
+        defaultValue={itemProp.title}
         className={styles.textInput}
+        style={editMode}
         onKeyDown={handleUpdatedDone}
-        onChange={(e) => setUpdate(e.target.value, itemProp.id)}
       />
     </li>
   );

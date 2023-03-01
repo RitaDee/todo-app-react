@@ -13,12 +13,6 @@ const TodosLogic = () => {
 
   const [todos, setTodos] = useState(getInitialTodos());
 
-  useEffect(() => {
-    // storing todos items
-    const temp = JSON.stringify(todos);
-    localStorage.setItem('todos', temp);
-  }, [todos]);
-
   const handleChange = (id) => {
     setTodos((prevState) => prevState.map((todo) => {
       if (todo.id === id) {
@@ -59,6 +53,12 @@ const TodosLogic = () => {
       }),
     );
   };
+
+  useEffect(() => {
+    // storing todos items
+    const temp = JSON.stringify(todos);
+    localStorage.setItem('todos', temp);
+  }, [todos]);
 
   return (
     <div>
