@@ -31,6 +31,7 @@ const Navbar = () => {
         />
       )}
     </button>;
+
     const [dropdown] = useState(false);
     document.title = `Current state value: ${dropdown}`;
 
@@ -63,6 +64,22 @@ const Navbar = () => {
     return (
       <>
         <nav ref={ref} className="navbar">
+          <button
+            type="button"
+            className="toggle"
+            onClick={() => setNavbarOpen((prev) => !prev)}
+          >
+            {navbarOpen ? (
+              <MdClose style={{ width: '32px', height: '32px' }} />
+            ) : (
+              <FiMenu
+                style={{
+                  width: '32px',
+                  height: '32px',
+                }}
+              />
+            )}
+          </button>
           <ul className={`menu-nav${navbarOpen ? ' show-menu' : ''}`}>
             {links.map((link) => (
               <React.Fragment key={link.text}>
@@ -77,13 +94,34 @@ const Navbar = () => {
                     </NavLink>
                   </li>
                   )
+                ) : link.path === 'profile' ? (
+                  user && (
+                  <li>
+                    <NavLink
+                      to={link.path}
+                      onClick={() => setNavbarOpen(false)}
+                    >
+                      {link.text}
+                    </NavLink>
+                  </li>
+                  )
                 ) : (
                   <li>
-                    <NavLink to={link.path}>{link.text}</NavLink>
+                    <NavLink
+                      to={link.path}
+                      onClick={() => setNavbarOpen(false)}
+                    >
+                      {link.text}
+                    </NavLink>
                   </li>
                 )}
               </React.Fragment>
             ))}
+            {!user && (
+            <li className="log-in">
+              <span>Log in to edit to-dos</span>
+            </li>
+            )}
           </ul>
         </nav>
         {user && (
