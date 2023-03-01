@@ -1,10 +1,14 @@
 import { useState } from 'react';
 import styles from '../styles/Login.module.css';
+import { useAuthContext } from '../context/AuthContext';
 
 const Login = () => {
   const [username, setUsername] = useState('');
+  const { login } = useAuthContext();
   const handleSubmit = (e) => {
     e.preventDefault();
+    login(username);
+    setUsername('');
   };
   return (
     <div>
