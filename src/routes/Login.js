@@ -5,7 +5,7 @@ import { useAuthContext } from '../context/AuthContext';
 
 const Login = () => {
   const [username, setUsername] = useState('');
-  const { login } = useAuthContext();
+  const { login } = useAuthContext() ?? {};
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.pathname || '/';
