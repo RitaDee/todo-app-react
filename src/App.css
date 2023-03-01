@@ -82,3 +82,8 @@ a {
 .active {
   color: #8a4baf;
 }
+
+.profile {
+  max-width: 1000px;
+  margin: 0 auto;
+}
