@@ -1,13 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useAuthContext } from '../../context/AuthContext';
+// import { useAuthContext } from '../../context/AuthContext';
 
 const Navbar = () => {
-  const { user, logout } = useAuthContext();
-
-  const handleLogout = () => {
-    logout();
-  };
+//   const { user, logout } = useAuthContext();
+//   console.log(useAuthContext);
+//   const handleLogout = () => {
+//     logout();
+//   };
 
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [dropdown, setDropdown] = useState(false);
@@ -63,12 +63,12 @@ const Navbar = () => {
           </li>
         </ul>
       </nav>
-      {user && (
+      {/* {user && (
       <div className="logout">
         <p>{user}</p>
         <button type="button" onClick={handleLogout}>Logout</button>
       </div>
-      )}
+      )} */}
     </>
   );
 };
