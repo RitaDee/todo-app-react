@@ -1,7 +1,14 @@
 import { useState, useRef, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useAuthContext } from '../../context/AuthContext';
 
 const Navbar = () => {
+  const { user, logout } = useAuthContext();
+
+  const handleLogout = () => {
+    logout();
+  };
+
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [dropdown, setDropdown] = useState(false);
   document.title = `Current state value: ${dropdown}`;
@@ -33,28 +40,36 @@ const Navbar = () => {
   ];
 
   return (
-    <nav ref={ref}>
-      <ul className={`menu-nav${navbarOpen ? ' show-menu' : ''}`}>
-        {links.map((link) => (
-          <li key={link.text}>
-            <NavLink to={link.path}>{link.text}</NavLink>
-          </li>
-        ))}
-        <li>
-          <button type="button" onClick={() => setDropdown(!dropdown)}>
-            Services
-            {' '}
-            <span>&#8595;</span>
-          </button>
-          {dropdown && (
+    <>
+      <nav ref={ref} className="navbar">
+        <ul className={`menu-nav${navbarOpen ? ' show-menu' : ''}`}>
+          {links.map((link) => (
+            <li key={link.text}>
+              <NavLink to={link.path}>{link.text}</NavLink>
+            </li>
+          ))}
+          <li>
+            <button type="button" onClick={() => setDropdown(!dropdown)}>
+              Services
+              {' '}
+              <span>&#8595;</span>
+            </button>
+            {dropdown && (
             <ul>
               <li>Design</li>
               <li>Development</li>
             </ul>
-          )}
-        </li>
-      </ul>
-    </nav>
+            )}
+          </li>
+        </ul>
+      </nav>
+      {user && (
+      <div className="logout">
+        <p>{user}</p>
+        <button type="button" onClick={handleLogout}>Logout</button>
+      </div>
+      )}
+    </>
   );
 };
 
