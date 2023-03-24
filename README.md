@@ -111,7 +111,7 @@ After you're finished please remove all the comments and instructions!
 <!-- LIVE DEMO -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-[Live Demo Link](https://idyllic-longma-528ffb.netlify.app/about/about-developer/)
+[Live Demo Link](https://todo-list34.netlify.app/)
 
 
 <!-- > Add a link to your deployed project. -->
